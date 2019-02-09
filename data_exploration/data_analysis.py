@@ -39,12 +39,8 @@ def loadCSVfile(csvFile):
     return df
 
 def csvFileSave(arrayName,fileName):
-    import sqlite3,csv,re,sys
-    import pandas as pd
-    from pandas import DataFrame
-    import numpy as np
     table=DataFrame(arrayName)
-    table.to_csv(os.path.join(curDir,processedFileLocation+fileName),index=False,sep=',',)
+    table.to_csv(os.path.join(curDir,processedFileLocation+fileName),index=False,sep=',')
 
 #Step 1 ---- Load the Data into a DataFrame
 
