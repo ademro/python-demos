@@ -38,6 +38,12 @@ def loadCSVfile(csvFile):
     df=pd.DataFrame(pd.read_csv(os.path.join(curDir,feedFileLocation+csvFile),header=0,delimiter=',',error_bad_lines=False,dtype=str))
     return df
 
+#load an Excel File -- note the variable headerLoc denotes the row that should be used for your dataframe labels and the variable sheetName denotes the excel sheet you want to load into a dataframe
+def loadExcelfile(excelFile,headerLoc,sheetName):
+    df=pd.DataFrame(pd.read_excel(os.path.join(curDir,feedFileLocation+excelFile),header=headerLoc,dtype=str,sheet_name=sheetName))
+    return df
+
+#save a dataframe to CSV
 def csvFileSave(arrayName,fileName):
     table=DataFrame(arrayName)
     table.to_csv(os.path.join(curDir,processedFileLocation+fileName),index=False,sep=',')
